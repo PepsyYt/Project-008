@@ -1,0 +1,13 @@
+<StackLayout xmlns:gMaps="@nativescript/google-maps">
+    <gMaps:GoogleMaps
+        latitude="{{ userLatitude }}"
+        longitude="{{ userLongitude }}"
+        zoom="{{ zoom }}"
+        bearing="{{ bearing }}"
+        tilt="{{ tilt }}"
+        padding="{{ padding }}"
+        mapAnimationsEnabled="true"
+        markerSelect="{{ onMarkerSelect }}"
+        cameraChanged="{{ onCameraChanged }}"
+        class="h-[300]" />
+</StackLayout>

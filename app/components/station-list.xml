@@ -1,0 +1,9 @@
+<ListView items="{{ stations }}" itemTap="{{ onStationTap }}" class="list-group">
+    <ListView.itemTemplate>
+        <GridLayout rows="auto, auto" columns="*, auto" class="p-4 border-b border-gray-200">
+            <Label text="{{ name }}" row="0" col="0" class="text-lg font-bold"/>
+            <Label text="{{ availableSlots + ' slots available' }}" row="0" col="1" class="text-green-600"/>
+            <Label text="{{ address }}" row="1" col="0" colSpan="2" class="text-gray-600"/>
+        </GridLayout>
+    </ListView.itemTemplate>
+</ListView>

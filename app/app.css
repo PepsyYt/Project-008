@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Page {
+    background-color: #f9fafb;
+}
+
+ActionBar {
+    background-color: #059669;
+    color: white;
+}
+
+.tab-view {
+    tab-text-color: #4b5563;
+    selected-tab-text-color: #059669;
+}
+
+.btn-primary {
+    background-color: #059669;
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    border-radius: 8;
+}
+
+.list-group {
+    separator-color: #e5e7eb;
+}

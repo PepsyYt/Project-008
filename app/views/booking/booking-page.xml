@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Book Charging Station" />
+    
+    <ScrollView>
+        <StackLayout padding="20">
+            <Label text="{{ station.name }}" class="h2" />
+            <Label text="{{ station.address }}" class="body" />
+            
+            <GridLayout rows="auto" columns="*, *" class="m-y-10">
+                <Label text="Price per kWh:" col="0" />
+                <Label text="{{ station.pricePerKwh | currency }}" col="1" />
+            </GridLayout>
+            
+            <Label text="Select Connector Type:" class="h3 m-y-10" />
+            <ListView items="{{ station.connectorTypes }}" selectedIndex="{{ selectedConnectorIndex }}">
+                <ListView.itemTemplate>
+                    <Label text="{{ $value }}" padding="10" />
+                </ListView.itemTemplate>
+            </ListView>
+            
+            <Label text="Select Time Slot:" class="h3 m-y-10" />
+            <DateTimePicker hour="{{ startHour }}" minute="{{ startMinute }}" />
+            
+            <Label text="Duration (hours):" class="h3 m-y-10" />
+            <Slider value="{{ duration }}" minValue="1" maxValue="4" />
+            <Label text="{{ duration }} hours" />
+            
+            <Button text="Book Now" tap="{{ onBookNow }}" class="btn btn-primary m-t-20" />
+        </StackLayout>
+    </ScrollView>
+</Page>

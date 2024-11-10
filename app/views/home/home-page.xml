@@ -1,0 +1,63 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="EV Charging Stations" class="bg-green-600 text-white" />
+    
+    <TabView selectedTabTextColor="#4CAF50" tabTextFontSize="16">
+        <TabView.items>
+            <TabViewItem title="Map">
+                <TabViewItem.view>
+                    <GridLayout rows="*, auto">
+                        <ContentView row="0">
+                            <map:MapView
+                                latitude="{{ userLatitude }}"
+                                longitude="{{ userLongitude }}"
+                                zoom="15"
+                                mapAnimationsEnabled="true"
+                                xmlns:map="nativescript-google-maps-sdk" />
+                        </ContentView>
+                        <StackLayout row="1" class="p-4 bg-white">
+                            <Button text="Find Nearest Station" tap="{{ findNearestStation }}" class="bg-green-600 text-white p-4 rounded-lg" />
+                        </StackLayout>
+                    </GridLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+            
+            <TabViewItem title="Wallet">
+                <TabViewItem.view>
+                    <ScrollView>
+                        <StackLayout class="p-4">
+                            <Label text="Your Balance" class="text-lg text-gray-600" />
+                            <Label text="{{ walletBalance }}" class="text-3xl font-bold text-green-600 mb-4" />
+                            <Button text="Add Money" tap="{{ addMoney }}" class="bg-green-600 text-white p-4 rounded-lg mb-4" />
+                            <Label text="Recent Transactions" class="text-lg text-gray-600 mb-2" />
+                            <ListView items="{{ transactions }}" class="list-group">
+                                <ListView.itemTemplate>
+                                    <GridLayout columns="*, auto" class="p-2 border-b border-gray-200">
+                                        <Label col="0" text="{{ description }}" class="text-gray-800" />
+                                        <Label col="1" text="{{ amount }}" class="text-right" />
+                                    </GridLayout>
+                                </ListView.itemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </ScrollView>
+                </TabViewItem.view>
+            </TabViewItem>
+            
+            <TabViewItem title="Bookings">
+                <TabViewItem.view>
+                    <StackLayout class="p-4">
+                        <Button text="Book New Slot" tap="{{ bookNewSlot }}" class="bg-green-600 text-white p-4 rounded-lg mb-4" />
+                        <ListView items="{{ bookings }}" class="list-group">
+                            <ListView.itemTemplate>
+                                <GridLayout rows="auto, auto" columns="*, auto" class="p-4 border-b border-gray-200">
+                                    <Label row="0" col="0" text="{{ stationName }}" class="font-bold" />
+                                    <Label row="0" col="1" text="{{ status }}" class="text-right" />
+                                    <Label row="1" col="0" colSpan="2" text="{{ dateTime }}" class="text-gray-600" />
+                                </GridLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </TabViewItem.view>
+            </TabViewItem>
+        </TabView.items>
+    </TabView>
+</Page>
